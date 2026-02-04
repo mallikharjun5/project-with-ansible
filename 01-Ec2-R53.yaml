@@ -6,7 +6,7 @@
     ami_id: ami-0220d79f3f480ecf5
     sg_id: sg-090908868bc302a71
     zone_id: Z01508593JUYY9SHIBG2D
-    domian_name: mallikharjundevops.fun
+    domain_name: mallikharjundevops.fun
     instances:
     - mongodb
   tasks:
