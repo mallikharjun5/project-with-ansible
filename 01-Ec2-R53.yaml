@@ -15,7 +15,7 @@
   tasks:
   - name: create ec2 instances
     amazon.aws.ec2_instance:
-      state: absent
+      state: present
       name: "{{ item }}"
       instance_type: t3.micro
       security_group: "{{ sg_id }}"
@@ -41,7 +41,7 @@
     
   - name: create route53 record
     amazon.aws.route53:
-      state: absent
+      state: present
       zone: "{{ domain_name }}"
       record: "{{ item.item }}.{{ domain_name }}" # mallikharjundevops.fun
       type: A
@@ -53,7 +53,7 @@
   # we are creating one record with public only for frontend
   - name: create route53 record for frontend
     amazon.aws.route53:
-      state: absent
+      state: present
       zone: "{{ domain_name }}"
       record: "{{ domain_name }}" # mallikharjundevops.fun
       type: A
