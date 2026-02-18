@@ -1,5 +1,5 @@
 - name: setup redis server
-  hosts: redis
+  hosts: local
   become: yes
   tasks:
   - name: disable default redis
