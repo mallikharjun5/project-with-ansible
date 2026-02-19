@@ -56,15 +56,19 @@
       name: mongodb-mongosh
       state: present
 
-  # - name: connect to mongodb catalogue
-  #   ansible.builtin.command: mongosh mongodb.daws86s.fun --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
-  #   register: catalogue_output
-
-  - name: evaluate catalogue output
-    community.mongodb.mongodb_shell:
-      eval: db.getMongo().getDBNames.indexOf('catalogue')
+  - name: connect to mongodb catalogue
+    ansible.builtin.command: mongosh mongodb.mallikharjundevops.fun --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
     register: catalogue_output
 
-  - name: print catalogue output 
-    ansible.builtin.debug:
-      msg: "{{ catalogue_output }}"
+  # - name: evaluate catalogue output
+  #   community.mongodb.mongodb_shell:
+  #     login_host: mongodb.mallikharjundevops.fun
+  #     eval: db.getMongo().getDBNames.indexOf('catalogue')
+  #   register: catalogue_output
+
+  # - name: print catalogue output 
+  #   ansible.builtin.debug:
+  #     msg: "{{ catalogue_output }}"
+
+  - name: load products in to mongodb
+    ansible.builtin.shell: mongosh --host mongodb.mallikharjundevops.fun </app/db/master-data.js
