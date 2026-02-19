@@ -7,6 +7,7 @@
     sg_id: sg-090908868bc302a71
     zone_id: Z01508593JUYY9SHIBG2D
     domain_name: mallikharjundevops.fun
+    
     # we can pass instances through command line by using -e (refer the command below)
     # ansible-playbook -i inventory.ini ec2_r53_playbook.yaml -e "instances=['instance1', 'instance2', 'instance3']"
 
