@@ -2,6 +2,14 @@
   hosts: catalogue
   become: yes
   tasks:
+  - name: install libraries
+    ansible.builtin.pip:
+      executable: pip3.9
+      name: "{{ item }}"
+    loop:
+    - cryptography
+    - pymongo
+
   - name: disable default nodejs
     ansible.builtin.commabd: dnf module disable nodejs -y
 
