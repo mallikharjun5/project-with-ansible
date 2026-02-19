@@ -22,11 +22,10 @@
     # - shipping
     # - payment
     # - frontend
-    
+
   tasks:
-  - name: create ec2 instances
+  - name: create ec2 instance
     amazon.aws.ec2_instance:
-      state: present
       name: "{{ item }}"
       instance_type: t3.micro
       security_group: "{{ sg_id }}"
@@ -35,7 +34,7 @@
         Name: "{{ item }}"
     loop: "{{ instances }}"
     register: ec2_output
-    
+
   # - name: print the ec2_output
   #   ansible.builtin.debug:
   #     msg: "{{ ec2_output }}"
@@ -49,7 +48,7 @@
   #   ansible.builtin.debug: 
   #     msg: "{{ item.instances[0].private_ip_address }}"
   #   loop: "{{ ec2_output.results }}"
-    
+
   - name: create route53 record
     amazon.aws.route53:
       state: present
